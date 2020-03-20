@@ -53,7 +53,7 @@ public class Pandemic {
 
 	@Override
 	public String toString() {
-		return "Pandemic [id=" + id + ", name=" + name + "]";
+		return "ID: " + id + " " + name;
 	}
 
 }
