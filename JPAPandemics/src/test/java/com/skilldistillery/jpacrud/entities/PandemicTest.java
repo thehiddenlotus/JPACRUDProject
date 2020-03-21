@@ -44,7 +44,7 @@ class PandemicTest {
 	void test() {
 		assertNotNull(pandemic);
 		assertEquals("Covid-19", pandemic.getName());
-		assertEquals(.01, pandemic.getPercentKilled());
+		assertEquals(11000, pandemic.getDeathToll());
 		
 	}
 

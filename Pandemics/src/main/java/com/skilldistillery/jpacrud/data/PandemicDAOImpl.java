@@ -28,4 +28,38 @@ public class PandemicDAOImpl implements PandemicDAO {
 		return em.createQuery(jpql, Pandemic.class).getResultList();
 	}
 
+	@Override
+	public Pandemic create(Pandemic pan) {
+		// write the customer to the database
+		em.persist(pan);
+		// update the "local" Customer object
+		em.flush();		
+		return pan;
+	}
+
+	@Override
+	public Pandemic update(int id, Pandemic pan) {
+		Pandemic managedPan = em.find(Pandemic.class, id);
+
+		// update the values of the managed entity
+		managedPan.setName(pan.getName());
+		managedPan.setDeathToll(pan.getDeathToll());
+
+		return managedPan;
+	}
+
+	@Override
+	public boolean destroy(int id) {
+		
+		Pandemic managedPan = em.find(Pandemic.class, id);	
+		if (managedPan != null) {
+			em.remove(managedPan); // performs the delete on the managed entity
+			em.flush();
+			System.out.println(managedPan);
+			if (!em.contains(managedPan)) {				
+				return true;
+			}
+		}
+		return false;
+	}
 }

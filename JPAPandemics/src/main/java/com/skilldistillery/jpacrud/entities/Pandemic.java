@@ -6,17 +6,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity 
+@Entity
 public class Pandemic {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
-	@Column(name = "percent_killed")
-	private Double percentKilled;
-	
+	@Column(name = "death_toll")
+	private Integer deathToll;
 
 	public Pandemic() {
 	}
@@ -42,18 +41,18 @@ public class Pandemic {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public Double getPercentKilled() {
-		return percentKilled;
+
+	public Integer getDeathToll() {
+		return deathToll;
 	}
-	
-	public void setPercentKilled(Double percentKilled) {
-		this.percentKilled = percentKilled;
+
+	public void setDeathToll(Integer deathToll) {
+		this.deathToll = deathToll;
 	}
 
 	@Override
 	public String toString() {
-		return "ID: " + id + " " + name;
+		return "ID: " + id + " " + name + "\tDeath Toll: " + deathToll;
 	}
 
 }
