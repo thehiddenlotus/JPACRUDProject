@@ -14,8 +14,8 @@
 <title>Update Pandemic</title>
 </head>
 <body>
-	<h2>Add or Update Pandemic</h2>
-	<form:form action="addPandemic.do" method="POST" modelAttribute="pan" >
+	<h2>Update Pandemic</h2>
+	<form:form action="updatePandemic.do" method="POST" modelAttribute="pan" >
 		<form:label path="name">Name:</form:label>
 		<form:input path="name" value="${pan.name }"/>
 		<form:errors path="name" />
@@ -39,7 +39,8 @@
 		<form:label path="end">End:</form:label>
 		<form:input path="end" value="${pan.end }"/>
 		<form:errors path="end" />
-		<input type="submit" value="Update" />
+		<input type="hidden" name="id" value=${pan.id }>
+		<input type="submit" value="Update"/>
 		<br>
 	</form:form>
 		<hr>
