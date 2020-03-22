@@ -95,7 +95,7 @@ public class Pandemic {
 
 	@Override
 	public String toString() {
-		return name + " " + type + ", deathToll:" + deathToll + ", outbreak location:" + location + ", " + start + "-" + end;
+		return id + " " + name + " " + type + ", Death Toll: " + deathToll + ", Outbreak Location: " + location + ", " + start + "-" + end;
 	}
 
 	@Override

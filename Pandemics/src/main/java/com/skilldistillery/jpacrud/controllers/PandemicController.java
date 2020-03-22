@@ -22,15 +22,15 @@ public class PandemicController {
 		return "index";
 	}
 	
-	@RequestMapping(path = "getPandemic.do", method = RequestMethod.GET, params = "pid")
-	public String showPandemic(@RequestParam Integer pid, Model model) {
+	@RequestMapping(path = "getPandemic.do", method = RequestMethod.GET, params = "id")
+	public String showPandemic(@RequestParam Integer id, Model model) {
 		String viewName = "pandemic/show";
-		Pandemic pandemic = dao.findByID(pid);
+		Pandemic pandemic = dao.findByID(id);
 		model.addAttribute("pandemic", pandemic);
 		return viewName;
 	}
 	
-	@RequestMapping(path = "deletePandemic.do", method = RequestMethod.POST, params="id")
+	@RequestMapping(path = "deletePandemic.do", method = RequestMethod.POST, params = "id")
 	public String deletePandemic(@RequestParam Integer id, Model model) {
 		String viewName = "pandemic/pandemicDeleted";	
 		Pandemic pan = dao.findByID(id);
@@ -49,13 +49,13 @@ public class PandemicController {
 	
 	@RequestMapping(path = "addPandemic.do", method = RequestMethod.POST)
 	public String postPandemic(Pandemic pan, Model model) {
-		String viewName = "pandemic/show";
+		String viewName = "pandemic/pandemicUpdated";
 		dao.create(pan);
 		model.addAttribute("pan", pan);
 		return viewName;
 	}
 	
-	@RequestMapping(path = "updatePandemic.do", method = RequestMethod.GET)
+	@RequestMapping(path = "updatePandemic.do", method = RequestMethod.GET, params = "id")
 	public String updatePandemic(@RequestParam Integer id, Model model) {
 		String viewName = "pandemic/updateForm";	
 		Pandemic pan = dao.findByID(id);
@@ -63,9 +63,9 @@ public class PandemicController {
 		return viewName;
 	}
 	
-	@RequestMapping(path = "updatePandemic.do", method = RequestMethod.POST)
+	@RequestMapping(path = "updatePandemic.do", method = RequestMethod.POST, params = "id")
 	public String updatePandemic(@RequestParam Integer id, Pandemic pan, Model model) {
-		String viewName = "pandemic/show";
+		String viewName = "pandemic/pandemicUpdated";
 		dao.update(id, pan);
 		model.addAttribute("pan", pan);
 		return viewName;

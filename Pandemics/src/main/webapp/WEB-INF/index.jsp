@@ -14,7 +14,7 @@
 <body>
 	<h1>Historic Pandemics</h1>
 	<form action="getPandemic.do" method="GET">
-		ID: <input type="text" name="pid" value=""/><input type="submit" value="Search Pandemic" />
+		ID: <input type="text" name="id" value=""/><input type="submit" value="Search Pandemic" />
 	</form>
 	<br>
 	<hr>
@@ -33,7 +33,7 @@
 			<c:forEach var="pan" items="${pandemics}">
 				<tr>
 					<td>${pan.id}</td>
-					<td><a href="getPandemic.do?pid=${pan.id}">${pan.name}</a></td>
+					<td><a href="getPandemic.do?id=${pan.id}">${pan.name}</a></td>
 					<td>${pan.type}</td>
 					<td>${pan.deathToll}</td>
 					<td>${pan.location}</td>
