@@ -31,7 +31,7 @@ class PandemicTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		pandemic = em.find(Pandemic.class, 1);
+		pandemic = em.find(Pandemic.class, 14);
 	}
 
 	@AfterEach
@@ -43,8 +43,12 @@ class PandemicTest {
 	@Test
 	void test() {
 		assertNotNull(pandemic);
-		assertEquals("Covid-19", pandemic.getName());
+		assertEquals("Coronavirus", pandemic.getName());
 		assertEquals(11000, pandemic.getDeathToll());
+		assertEquals("Wuhan, Hubei, China", pandemic.getLocation());
+		assertEquals("COVID-19", pandemic.getType());
+		assertEquals(2019, pandemic.getStart());
+		assertEquals(2020, pandemic.getEnd());
 		
 	}
 

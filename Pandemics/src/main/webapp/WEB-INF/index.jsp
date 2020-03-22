@@ -14,9 +14,35 @@
 <body>
 	<h1>Historic Pandemics</h1>
 	<form action="getPandemic.do" method="GET">
-		Film ID: <input type="text" name="pid" /> <input type="submit"
-			value="Show Pandemic" />
+		ID: <input type="text" name="pid" /> <input type="submit"
+			value="Search Pandemic" />
 	</form>
+	<br>
+	<hr>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Death Toll</th>
+				<th>Outbreak Location</th>
+				<th>Period</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="pan" items="${pandemics}">
+				<tr>
+					<td>${pan.id}</td>
+					<td><a href="getPandemic.do?pid=${pan.id}">${pan.name}</a></td>
+					<td>${pan.type}</td>
+					<td>${pan.deathToll}</td>
+					<td>${pan.location}</td>
+					<td>${pan.start} - ${pan.end}</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 	<br>
 	<div>
 		<form class="searchButton" action="addPandemic.do">
@@ -24,24 +50,5 @@
 				New Pandemic</button>
 		</form>
 	</div>
-	<br>
-	<hr>
-	<table>
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Death Toll</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="pan" items="${pandemics}">
-				<tr>
-					<td><a href="getPandemic.do?pid=${pan.id}">${pan.name}</a></td>
-					<td>${pan.deathToll}</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-	${pandemics}
 </body>
 </html>

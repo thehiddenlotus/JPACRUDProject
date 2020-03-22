@@ -12,12 +12,18 @@
 <title>Show Pandemic</title>
 </head>
 <body>
+	<form class="searchButton" action="home.do">
+		<button type="submit" class="btn btn-primary " value="Home">Home</button>
+	</form>
+	<hr>
 	<c:choose>
 		<c:when test="${! empty pandemic}">
+			<h3>ID: ${pandemic.id}		${pandemic.name}</h3>
 			<ul>
-				<li>ID: ${pandemic.id}
-				<li>Name: ${pandemic.name}</li>
+				<li>Type: ${pandemic.type}</li>
 				<li>Death Toll: ${pandemic.deathToll}</li>
+				<li>Outbreak Location: ${pandemic.location}</li>
+				<li>Period: ${pandemic.start} - ${pandemic.end }</li>
 			</ul>
 			<br>
 			<hr>
@@ -35,5 +41,6 @@
 			<p>No Pandemic found</p>
 		</c:otherwise>
 	</c:choose>
+	<hr>
 </body>
 </html>

@@ -32,10 +32,11 @@ public class PandemicController {
 	
 	@RequestMapping(path = "deletePandemic.do", method = RequestMethod.POST, params="id")
 	public String deletePandemic(@RequestParam Integer id, Model model) {
-		String viewName = "pandemic/show";		
+		String viewName = "pandemic/pandemicDeleted";	
+		Pandemic pan = dao.findByID(id);
 		boolean delete = dao.destroy(id);
 		model.addAttribute("delete", delete);
-		model.addAttribute("pandemicID", id);
+		model.addAttribute("pan", pan);
 		return viewName;
 	}
 }

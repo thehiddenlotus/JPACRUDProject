@@ -56,7 +56,7 @@ public class PandemicDAOImpl implements PandemicDAO {
 			em.remove(managedPan); // performs the delete on the managed entity
 			em.flush();
 			System.out.println(managedPan);
-			if (!em.contains(managedPan)) {				
+			if (false == em.contains(managedPan)) {				
 				return true;
 			}
 		}
