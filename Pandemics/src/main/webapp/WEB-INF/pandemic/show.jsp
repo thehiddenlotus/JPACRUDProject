@@ -28,13 +28,12 @@
 			<br>
 			<hr>
 			<form action="updatePandemic.do" method="GET">
-				<button type="submit" class="btn btn-primary "
-					value="Update Pandemic">Update Pandemic</button>
+				<input type="hidden" name="id" value=${ pandemic.id }>
+				<button type="submit" class="btn btn-primary " value="Update Pandemic">Update Pandemic</button>
 			</form>
 			<form action="deletePandemic.do" method="POST">
 				<input type="hidden" name="id" value=${ pandemic.id }>
-				<button type="submit" class="btn btn-primary " value="Pandemic Film">Delete
-					Pandemic</button>
+				<button type="submit" class="btn btn-primary " value="Pandemic Film">Delete Pandemic</button>
 			</form>
 		</c:when>
 		<c:otherwise>

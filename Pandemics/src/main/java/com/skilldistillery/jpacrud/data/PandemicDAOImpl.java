@@ -43,7 +43,12 @@ public class PandemicDAOImpl implements PandemicDAO {
 
 		// update the values of the managed entity
 		managedPan.setName(pan.getName());
+		managedPan.setType(pan.getType());
 		managedPan.setDeathToll(pan.getDeathToll());
+		managedPan.setLocation(pan.getLocation());
+		managedPan.setStart(pan.getStart());
+		managedPan.setEnd(pan.getEnd());
+		em.flush();
 
 		return managedPan;
 	}

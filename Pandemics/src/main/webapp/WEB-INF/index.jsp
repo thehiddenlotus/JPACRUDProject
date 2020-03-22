@@ -14,8 +14,7 @@
 <body>
 	<h1>Historic Pandemics</h1>
 	<form action="getPandemic.do" method="GET">
-		ID: <input type="text" name="pid" /> <input type="submit"
-			value="Search Pandemic" />
+		ID: <input type="text" name="pid" value=""/><input type="submit" value="Search Pandemic" />
 	</form>
 	<br>
 	<hr>

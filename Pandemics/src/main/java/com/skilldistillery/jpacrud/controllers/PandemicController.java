@@ -39,4 +39,27 @@ public class PandemicController {
 		model.addAttribute("pan", pan);
 		return viewName;
 	}
+	
+	@RequestMapping(path = "addPandemic.do", method = RequestMethod.GET)
+	public String addPandemic(Pandemic pan, Model model) {
+		String viewName = "pandemic/pandemicForm";	
+		model.addAttribute("pan", pan);
+		return viewName;
+	}
+	
+	@RequestMapping(path = "addPandemic.do", method = RequestMethod.POST)
+	public String postPandemic(Pandemic pan, Model model) {
+		String viewName = "pandemic/show";
+		dao.create(pan);
+		model.addAttribute("pan", pan);
+		return viewName;
+	}
+	
+	@RequestMapping(path = "updatePandemic.do", method = RequestMethod.GET)
+	public String updatePandemic(@RequestParam Integer id, Model model) {
+		String viewName = "pandemic/pandemicForm";	
+		Pandemic pan = dao.findByID(id);
+		model.addAttribute("pan", pan);
+		return viewName;
+	}
 }
